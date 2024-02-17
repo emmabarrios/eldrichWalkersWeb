@@ -193,26 +193,16 @@ body, html {
 
 
 #success-message-container {
+    display: none;
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
+    z-index: 10000;
+    background-color: #ffdddd;
+    border-left: 6px solid #56f436;
+    padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    z-index: 1000;
-    visibility: hidden; 
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
-}
-
-#success-message-container.show {
-    visibility: visible;
-    opacity: 1;
-}
-
-.hide {
-    display: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+    color: #000;
 }

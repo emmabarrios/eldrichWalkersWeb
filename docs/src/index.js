@@ -206,18 +206,20 @@ function registerUser(email, password) {
     }
 
     showLoadingScreen();
+
     createUserWithEmailAndPassword(auth, email, password)
         .then((cred) => {
             
             console.log("User created: ",cred.user);
             // alert("User created: ", cred.user.uid);
 
-            showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
+            // showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
 
             return addEmptyRecord(cred.user.uid, email);
 
         }).then(()=>{
             auth.signOut()
+            showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
             // window.location.href = 'session.html';
         }) 
         .catch((err) => {
