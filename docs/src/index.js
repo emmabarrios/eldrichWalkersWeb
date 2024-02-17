@@ -154,6 +154,8 @@ window.addEventListener('load', function(){
 
 function loginUser(email, password) {
 
+    auth.signOut();
+    
     showLoadingScreen();
 
     setPersistence(auth, browserSessionPersistence)
@@ -204,7 +206,7 @@ function registerUser(email, password) {
 
             showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
 
-            auth.signOut();
+            
 
         }) 
         .catch((err) => {
