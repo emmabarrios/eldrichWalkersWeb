@@ -453,7 +453,7 @@ function populateForm(userData) {
     document.getElementById('user-id').value = userData.userId;
     document.getElementById('experience').value = userData.exp;
     document.getElementById('endurance').value = userData.stats.endurance;
-    document.getElementById('strength').value = userData.stats.strength;
+    document.getElementById('strenght').value = userData.stats.strenght;
     document.getElementById('vitality').value = userData.stats.vitality;
     document.getElementById('skillPointCost').value = userData.skillPointCost;
     document.getElementById('totalTraveledDistance').value = userData.totalTraveledDistance;
