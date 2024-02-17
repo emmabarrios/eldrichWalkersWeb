@@ -155,7 +155,7 @@ window.addEventListener('load', function(){
 function loginUser(email, password) {
 
     auth.signOut();
-    
+
     showLoadingScreen();
 
     setPersistence(auth, browserSessionPersistence)
@@ -191,7 +191,7 @@ function loginUser(email, password) {
     });
 }
 
-function registerUser(email, password) {
+function registerUser(email, password, _role) {
 
     showLoadingScreen();
 
@@ -200,7 +200,7 @@ function registerUser(email, password) {
             
             console.log("User created: ",cred.user);
 
-            return addEmptyRecord(cred.user.uid, email);
+            return addEmptyRecord(cred.user.uid, email, _role);
 
         }).then(()=>{
 
@@ -232,13 +232,13 @@ function registerUser(email, password) {
 
 }
 
-function addEmptyRecord(userId, usermail) {
+function addEmptyRecord(userId, usermail, r) {
     const userRef = child(dbref, `users/${userId}`);
 
      const emptyUser = {
         email: usermail,
         userId: userId,
-        role: "user",
+        role: r,
         weaponItems: [],
         quickItems: [],
         loggedDays: [],
@@ -279,7 +279,7 @@ function handleRegister() {
         return; 
     }
 
-    registerUser(email, password);
+    registerUser(email, password, 'user');
    
 }
 
@@ -389,6 +389,7 @@ function submitUserEdit(){
     const userRef = child(dbref, `users/${userId}`);
 
     const updatedUserData = {
+        role: document.getElementById('role').value,
         exp: parseInt(document.getElementById('experience').value, 10),
         stats: {
             endurance: parseInt(document.getElementById('endurance').value, 10),
@@ -453,6 +454,7 @@ function fetchUserDataAndPopulateForm(userId) {
 function populateForm(userData) {
 
     document.getElementById('user-id').value = userData.userId;
+    document.getElementById('role').value = userData.role;
     document.getElementById('experience').value = userData.exp;
     document.getElementById('endurance').value = userData.stats.endurance;
     document.getElementById('strenght').value = userData.stats.strenght;
@@ -467,7 +469,7 @@ function createNewUser() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    registerUser(email, password);
+    registerUser(email, password, 'admin');
 
 }
 
