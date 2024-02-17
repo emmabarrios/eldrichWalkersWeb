@@ -175,9 +175,6 @@ function loginUser(email, password) {
                 console.log('Las credenciales son inválidas. Por favor, intenta de nuevo.');
                 showError('Las credenciales son inválidas. Por favor, intenta de nuevo.');
                 break;
-            default:
-                console.log('Ocurrió un error al iniciar sesión: ' + err.message);
-                showError('Ocurrió un error al iniciar sesión. Por favor, inténtalo de nuevo.');
         }
         
     })
@@ -222,8 +219,6 @@ function registerUser(email, password) {
                 case 'auth/weak-password':
                     showError('La contraseña es demasiado débil. Por favor, elige una contraseña más fuerte.');
                     break;
-                default:
-                    showError('Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.');
             }
 
         });
@@ -258,7 +253,7 @@ function addEmptyRecord(userId, usermail) {
     set(userRef, emptyUser)
             .then(() => {
                 console.log("Empty user created");
-                alert("Empty user created");
+                showSuccessMessage("Usuario creado con exito!")
             })
             .catch((err) => {
                 console.log(err.message);
