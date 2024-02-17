@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eldrich Walkers</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <script src="/src/jquery.js"></script>
+
+</head>
+
+
+<body>
+    
+    <div id="loader_container">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <h6 class="navbar-brand">Usuario: <span id="user-mail"></span></h6>
+            <button class="btn btn-danger ml-auto" id="logout_Button">Log Out</button>
+        </div>
+    </nav>
+
+    <div id="error-message-container"></div>
+    
+    <div class="container mt-5">
+        <form id="userInfoForm">
+            <div class="form-group">
+                <label for="user-id">Id</label>
+                <input type="text" class="form-control" id="user-id" name="user-id" disabled>
+            </div>
+            <div class="form-group">
+                <label for="experience">Experiencia</label>
+                <input type="number" class="form-control" id="experience" name="experience">
+            </div>
+            <div class="form-group">
+                <label for="endurance">Aguante</label>
+                <input type="number" class="form-control" id="endurance" name="endurance">
+            </div>
+            <div class="form-group">
+                <label for="strength">Fuerza</label>
+                <input type="number" class="form-control" id="strength" name="strength">
+            </div>
+            <div class="form-group">
+                <label for="vitality">Vitalidad</label>
+                <input type="number" class="form-control" id="vitality" name="vitality">
+            </div>
+            <div class="form-group">
+                <label for="skillPointCost">Costo de experiencia</label>
+                <input type="number" class="form-control" id="skillPointCost" name="skillPointCost">
+            </div>
+            <div class="form-group">
+                <label for="totalTraveledDistance">Distancia recorrida</label>
+                <input type="number" class="form-control" id="totalTraveledDistance" name="totalTraveledDistance">
+            </div>
+            <div class="form-group">
+                <label for="totalDaysLogged">Total de dias logeado</label>
+                <input type="number" class="form-control" id="totalDaysLogged" name="totalDaysLogged">
+            </div>
+            <div class="form-group">
+                <label for="lastLoggedDay">Ultimo dia logeado</label>
+                <input type="date" class="form-control" id="lastLoggedDay" name="lastLoggedDay">
+            </div>
+            <button type="submit" class="btn btn-primary">Aceptar</button>
+            <button type="button" class="btn btn-secondary" id="submit_changes">Cancelar</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="bundle.js"></script>
+</body>
+</html>

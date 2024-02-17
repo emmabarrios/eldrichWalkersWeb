@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eldrich Walkers</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <script src="/src/jquery.js"></script>
+
+</head>
+
+
+<body>
+    
+    <div id="loader_container">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <h6 class="navbar-brand">Usuario: <span id="user-mail"></span></h6>
+            <button class="btn btn-danger ml-auto" id="logout_Button">Log Out</button>
+        </div>
+    </nav>
+
+    <div id="error-message-container"></div>
+
+    <div class="mt-5 dashboard-container">
+        <form id="createUserForm">
+            <h1>Nuevo Usuario</h1>
+            <div class="form-group">
+                <label for="email">Correo</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Aceptar</button>
+            <button type="button" class="btn btn-secondary" id="clear-form">Limpiar</button>
+        </form>
+    </div>
+
+    <div class="dashboard-container">
+        <h1>Usuarios</h1>
+        <div class="user-info" id="userInfoContainer">
+            <!-- User cards will be appended here -->
+        </div>
+    </div>
+
+    <script src="bundle.js"></script>
+</body>
+</html>
