@@ -205,9 +205,6 @@ function registerUser(email, password, _role) {
         }).then(()=>{
 
             showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
-
-            
-
         }) 
         .catch((err) => {
 
@@ -477,7 +474,7 @@ function createNewUser() {
 
     registerUser(email, password, 'admin');
 
-    window.location.href = 'admin.html';
+    
 
 }
 
