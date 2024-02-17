@@ -473,9 +473,6 @@ function createNewUser() {
     const password = document.getElementById('password').value;
 
     registerUser(email, password, 'admin');
-
-    
-
 }
 
 function clearForm() {
