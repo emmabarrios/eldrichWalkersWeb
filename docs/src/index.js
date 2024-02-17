@@ -33,10 +33,20 @@ onAuthStateChanged(auth, (user) => {
 
                     if(userRole === "user"){
                         if (window.location.pathname.endsWith('session.html')) {
-                            window.location.href = 'user.html';
+
+                            setTimeout(() => {
+                                window.location.href = 'user.html';
+                            }, 4000);
+
+                           
                         }
                     }else if(userRole === "admin"){
                         if (window.location.pathname.endsWith('session.html')) {
+
+                            setTimeout(() => {
+                                window.location.href = 'user.html';
+                            }, 4000);
+
                             window.location.href = 'admin.html';
                         }
                     }
@@ -488,16 +498,10 @@ function showSuccessMessage(message) {
 
     setTimeout(() => {
         messageContainer.style.display = 'none';
-        if (window.location.pathname.endsWith('session.html')) {
-            window.location.href = 'session.html';
-        }
     }, 4000);
 
     messageContainer.onclick = () => {
         messageContainer.style.display = 'none';
-        if (window.location.pathname.endsWith('session.html')) {
-            window.location.href = 'session.html';
-        }
     };
 }
 
