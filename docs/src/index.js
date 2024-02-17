@@ -196,15 +196,9 @@ function registerUser(email, password) {
 
         }).then(()=>{
 
-            hideLoadingScreen();
-
             showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
 
-            auth.signOut().then(() => {
-                setTimeout(() => {
-                    window.location.href = 'session.html';
-                }, 3000); 
-            });
+            auth.signOut();
 
         }) 
         .catch((err) => {
@@ -221,10 +215,10 @@ function registerUser(email, password) {
                     break;
             }
 
+        })
+        .finally(()=>{
+            hideLoadingScreen();
         });
-        // .finally(()=>{
-        //     hideLoadingScreen();
-        // });
 
 }
 
