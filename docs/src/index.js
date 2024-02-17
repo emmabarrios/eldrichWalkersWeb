@@ -163,6 +163,7 @@ window.addEventListener('load', function(){
 function loginUser(email, password) {
 
     if (!email.trim() || !password.trim()) {
+        showError('Faltan campos por llenar');
         return;
     }
 
@@ -200,6 +201,7 @@ function loginUser(email, password) {
 function registerUser(email, password) {
 
     if (!email.trim() || !password.trim()) {
+        showError('Faltan campos por llenar');
         return;
     }
 
