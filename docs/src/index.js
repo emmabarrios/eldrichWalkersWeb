@@ -394,6 +394,7 @@ function submitUserEdit(){
 
     const updatedUserData = {
         role: document.getElementById('user-role').value,
+        
         exp: parseInt(document.getElementById('experience').value, 10),
         stats: {
             endurance: parseInt(document.getElementById('endurance').value, 10),
@@ -458,6 +459,7 @@ function fetchUserDataAndPopulateForm(userId) {
 function populateForm(userData) {
 
     document.getElementById('user-id').value = userData.userId;
+    document.getElementById('edit-user-mail').value = userData.email;
     document.getElementById('user-role').value = userData.role;
     document.getElementById('experience').value = userData.exp;
     document.getElementById('endurance').value = userData.stats.endurance;
@@ -475,7 +477,7 @@ function createNewUser() {
 
     registerUser(email, password, 'admin');
 
-    window.location.href = 'index.html';
+    window.location.href = 'admin.html';
 
 }
 
