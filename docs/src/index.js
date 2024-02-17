@@ -33,19 +33,11 @@ onAuthStateChanged(auth, (user) => {
 
                     if(userRole === "user"){
                         if (window.location.pathname.endsWith('session.html')) {
-
-                            setTimeout(() => {
-                                window.location.href = 'user.html';
-                            }, 4000);
-
+                            window.location.href = 'user.html';
                            
                         }
                     }else if(userRole === "admin"){
                         if (window.location.pathname.endsWith('session.html')) {
-
-                            setTimeout(() => {
-                                window.location.href = 'user.html';
-                            }, 4000);
 
                             window.location.href = 'admin.html';
                         }
