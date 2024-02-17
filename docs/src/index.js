@@ -167,17 +167,20 @@ function loginUser(email, password) {
                 showError('El formato del correo electrónico es incorrecto.');
                 break;
             case 'auth/user-not-found':
+                console.log('Ese correo no esta registrado.');
+                showError('Ese correo no esta registrado.');
+                break;
             case 'auth/wrong-password':
-                console.log('Correo electrónico o contraseña incorrectos.');
-                showError('Correo electrónico o contraseña incorrectos.');
+                console.log('Contraseña incorrectos.');
+                showError('Contraseña incorrectos.');
                 break;
             case 'auth/invalid-credential':
                 console.log('Las credenciales son inválidas. Por favor, intenta de nuevo.');
                 showError('Las credenciales son inválidas. Por favor, intenta de nuevo.');
                 break;
-            default:
-                console.log('Ocurrió un error al iniciar sesión: ' + err.message);
-                showError('Ocurrió un error al iniciar sesión: ' + err.message);
+            // default:
+            //     console.log('Ocurrió un error al iniciar sesión: ' + err.message);
+            //     showError('Ocurrió un error al iniciar sesión: ' + err.message);
         }
         
     })
@@ -216,8 +219,8 @@ function registerUser(email, password) {
                 case 'auth/weak-password':
                     showError('La contraseña es demasiado débil. Por favor, elige una contraseña más fuerte.');
                     break;
-                default:
-                    showError('Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.');
+                // default:
+                //     showError('Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.');
             }
 
         })
@@ -301,16 +304,16 @@ function renderUserInfo(userRef) {
 
                     const userInfoItems = `
                         <hr class="mt-1 mb-1"/>
-                        <li class="user-card-label" >Experience <span class="user-card-data">${userData.exp}</span></li>
+                        <li class="user-card-label" >Experiencia <span class="user-card-data">${userData.exp}</span></li>
                         <hr class="mt-1 mb-1"/>
-                        <li class="user-card-label">Endurance <span class="user-card-data">${userData.stats.endurance}</span></li>
-                        <li class="user-card-label">Strenght <span class="user-card-data">${userData.stats.strenght}</span></li>
-                        <li class="user-card-label">Vitality <span class="user-card-data">${userData.stats.vitality}</span></li>
+                        <li class="user-card-label">Aguante <span class="user-card-data">${userData.stats.endurance}</span></li>
+                        <li class="user-card-label">Fuerza <span class="user-card-data">${userData.stats.strenght}</span></li>
+                        <li class="user-card-label">Vitalidad <span class="user-card-data">${userData.stats.vitality}</span></li>
                         <hr class="mt-1 mb-1"/>
-                        <li class="user-card-label">Skill Point Cost <span class="user-card-data">${userData.skillPointCost}</span></li>
-                        <li class="user-card-label">Total Traveled Distance <span class="user-card-data">${userData.totalTraveledDistance}</span></li>
-                        <li class="user-card-label">Total Days Logged <span class="user-card-data">${userData.totalDaysLogged}</span></li>
-                        <li class="user-card-label">Last Logged Day <span class="user-card-data">${userData.lastLoggedDay}</span></li>
+                        <li class="user-card-label">Costo de nivel <span class="user-card-data">${userData.skillPointCost}</span></li>
+                        <li class="user-card-label">Distancia total viajada <span class="user-card-data">${userData.totalTraveledDistance}</span></li>
+                        <li class="user-card-label">Total de dias logeados <span class="user-card-data">${userData.totalDaysLogged}</span></li>
+                        <li class="user-card-label">Ultimo dia logeado <span class="user-card-data">${userData.lastLoggedDay}</span></li>
                     `;
 
                     userInfoList.innerHTML = `
@@ -348,8 +351,8 @@ function renderAllUserCards() {
                             <h6 class="card-title">User ID: ${uid}</h6>
                             <h6 class="card-title">Email: ${userEmail}</h6>
                             <div>
-                                <button id="edit-${uid}" class="btn btn-primary mr-2" onclick="editUser('${uid}')">Edit</button>
-                                <button id="delete-${uid}" class="btn btn-danger">Delete</button>
+                                <button id="edit-${uid}" class="btn btn-primary mr-2" onclick="editUser('${uid}')">Editar</button>
+                                <button id="delete-${uid}" class="btn btn-danger">Borrar</button>
                             </div>
                         </div>
                     `;
