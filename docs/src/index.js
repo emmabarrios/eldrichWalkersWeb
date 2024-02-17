@@ -345,13 +345,17 @@ function renderAllUserCards() {
 
                 for (const [uid, userData] of Object.entries(usersObject)) {
                     const userEmail = userData.email; 
+                    const userRole = userData.role; 
+
                     const userCard = document.createElement("div");
+
                     userCard.className = "card mb-3"; 
                     userCard.id = `user-card-${uid}`;
                     const cardContent = `
                         <div class="card-body d-flex justify-content-between">
-                            <h6 class="card-title">User ID: ${uid}</h6>
                             <h6 class="card-title">Email: ${userEmail}</h6>
+                            <h6 class="card-title">Email: ${userRole}</h6>
+                            <h6 class="card-title">User ID: ${uid}</h6>
                             <div>
                                 <button id="edit-${uid}" class="btn btn-primary mr-2" onclick="editUser('${uid}')">Editar</button>
                                 <button id="delete-${uid}" class="btn btn-danger">Borrar</button>
@@ -454,7 +458,7 @@ function fetchUserDataAndPopulateForm(userId) {
 function populateForm(userData) {
 
     document.getElementById('user-id').value = userData.userId;
-    document.getElementById('role').value = userData.role;
+    document.getElementById('user-role').value = userData.role;
     document.getElementById('experience').value = userData.exp;
     document.getElementById('endurance').value = userData.stats.endurance;
     document.getElementById('strenght').value = userData.stats.strenght;
