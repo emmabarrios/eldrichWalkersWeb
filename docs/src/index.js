@@ -219,6 +219,8 @@ function registerUser(email, password) {
 
         }).then(()=>{
 
+            hideLoadingScreen();
+
             showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
 
             auth.signOut().then(() => {
@@ -244,10 +246,10 @@ function registerUser(email, password) {
                     showError('Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.');
             }
 
-        })
-        .finally(()=>{
-            hideLoadingScreen();
         });
+        // .finally(()=>{
+        //     hideLoadingScreen();
+        // });
 
 }
 
