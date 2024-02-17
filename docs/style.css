@@ -199,8 +199,8 @@ body, html {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10000;
-    background-color: #56f436;
-    border-left: 6px solid #4CAF50;
+    background-color: #4CAF50;
+    border-left: 6px solid #56f436;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);

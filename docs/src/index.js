@@ -421,10 +421,12 @@ function deleteUser(userId) {
             if (userCardElement) {
                 userCardElement.remove();
             }
+
+            showSuccessMessage("Usuario eliminado con éxito");
         })
         .catch((err) => {
-            console.error("Error deleting user record from database: ", err.message);
-            showError(err.message);
+            console.error("Ha ocurrido un error: ", err.message);
+            showError("Ha ocurrido un error: ", err.message);
         })
         .finally(()=>{
             hideLoadingScreen();
