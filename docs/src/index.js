@@ -354,7 +354,7 @@ function renderAllUserCards() {
                     const cardContent = `
                         <div class="card-body d-flex justify-content-between">
                             <h6 class="card-title">Email: ${userEmail}</h6>
-                            <h6 class="card-title">Email: ${userRole}</h6>
+                            <h6 class="card-title">Role: ${userRole}</h6>
                             <h6 class="card-title">User ID: ${uid}</h6>
                             <div>
                                 <button id="edit-${uid}" class="btn btn-primary mr-2" onclick="editUser('${uid}')">Editar</button>
@@ -393,7 +393,7 @@ function submitUserEdit(){
     const userRef = child(dbref, `users/${userId}`);
 
     const updatedUserData = {
-        role: document.getElementById('role').value,
+        role: document.getElementById('user-role').value,
         exp: parseInt(document.getElementById('experience').value, 10),
         stats: {
             endurance: parseInt(document.getElementById('endurance').value, 10),
