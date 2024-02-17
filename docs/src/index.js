@@ -207,7 +207,7 @@ function registerUser(email, password) {
 
             // showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
 
-            return addEmptyRecord(cred.user.uid, email);
+            addEmptyRecord(cred.user.uid, email);
 
         }).then(()=>{
 
