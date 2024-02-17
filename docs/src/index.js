@@ -218,9 +218,15 @@ function registerUser(email, password) {
             return addEmptyRecord(cred.user.uid, email);
 
         }).then(()=>{
-            auth.signOut()
+
             showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
-            // window.location.href = 'session.html';
+
+            auth.signOut().then(() => {
+                setTimeout(() => {
+                    window.location.href = 'session.html';
+                }, 3000); 
+            });
+
         }) 
         .catch((err) => {
 
