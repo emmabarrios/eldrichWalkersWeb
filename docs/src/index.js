@@ -390,7 +390,7 @@ function submitUserEdit(){
         exp: parseInt(document.getElementById('experience').value, 10),
         stats: {
             endurance: parseInt(document.getElementById('endurance').value, 10),
-            strength: parseInt(document.getElementById('strength').value, 10),
+            strenght: parseInt(document.getElementById('strenght').value, 10),
             vitality: parseInt(document.getElementById('vitality').value, 10)
         },
         skillPointCost: parseInt(document.getElementById('skillPointCost').value, 10),
