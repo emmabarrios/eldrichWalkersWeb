@@ -191,12 +191,12 @@ function registerUser(email, password) {
             // alert("User created: ", cred.user.uid);
 
             showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
-            
+
             return addEmptyRecord(cred.user.uid, email);
 
         }).then(()=>{
             auth.signOut()
-            window.location.href = 'session.html';
+            // window.location.href = 'session.html';
         }) 
         .catch((err) => {
 
@@ -476,10 +476,16 @@ function showSuccessMessage(message) {
 
     setTimeout(() => {
         messageContainer.style.display = 'none';
+        if (window.location.pathname.endsWith('session.html')) {
+            window.location.href = 'session.html';
+        }
     }, 4000);
 
     messageContainer.onclick = () => {
         messageContainer.style.display = 'none';
+        if (window.location.pathname.endsWith('session.html')) {
+            window.location.href = 'session.html';
+        }
     };
 }
 
