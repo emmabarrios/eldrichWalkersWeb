@@ -152,11 +152,11 @@ window.addEventListener('load', function(){
 
 function loginUser(email, password) {
 
-    if (!email.trim() || !password.trim()) {
-        showError('Por favor, ingresa un correo electrónico y una contraseña.');
-        return;
-    }
-    
+    // if (!email.trim() || !password.trim()) {
+    //     showError('Por favor, ingresa un correo electrónico y una contraseña.');
+    //     return;
+    // }
+
     showLoadingScreen();
     setPersistence(auth, browserSessionPersistence)
     .then(()=>{
@@ -190,10 +190,10 @@ function loginUser(email, password) {
 
 function registerUser(email, password) {
 
-    if (!email.trim() || !password.trim()) {
-        showError('Por favor, ingresa un correo electrónico y una contraseña.');
-        return;
-    }
+    // if (!email.trim() || !password.trim()) {
+    //     showError('Por favor, ingresa un correo electrónico y una contraseña.');
+    //     return;
+    // }
 
     showLoadingScreen();
     createUserWithEmailAndPassword(auth, email, password)
