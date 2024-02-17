@@ -475,6 +475,8 @@ function createNewUser() {
 
     registerUser(email, password, 'admin');
 
+    window.location.href = 'index.html';
+
 }
 
 function clearForm() {
