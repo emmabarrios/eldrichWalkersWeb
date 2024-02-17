@@ -175,6 +175,9 @@ function loginUser(email, password) {
                 console.log('Las credenciales son inválidas. Por favor, intenta de nuevo.');
                 showError('Las credenciales son inválidas. Por favor, intenta de nuevo.');
                 break;
+            default:
+                console.log('Ocurrió un error al iniciar sesión: ' + err.message);
+                showError('Ocurrió un error al iniciar sesión: ' + err.message);
         }
         
     })
@@ -213,6 +216,8 @@ function registerUser(email, password) {
                 case 'auth/weak-password':
                     showError('La contraseña es demasiado débil. Por favor, elige una contraseña más fuerte.');
                     break;
+                default:
+                    showError('Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.');
             }
 
         })
@@ -257,14 +262,19 @@ function addEmptyRecord(userId, usermail) {
 function handleRegister() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm_password").value;
 
-    if (!email.trim() || !password.trim()) {
+    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
         showError('Faltan campos por llenar');
         return;
-    }else{
-        registerUser(email, password);
     }
 
+    if (password !== confirmPassword) {
+        showError('Las contraseñas no coinciden');
+        return; 
+    }
+
+    registerUser(email, password);
    
 }
 
