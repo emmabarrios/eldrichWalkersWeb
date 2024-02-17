@@ -156,8 +156,26 @@ function loginUser(email, password) {
     .then(()=>{
         return signInWithEmailAndPassword(auth, email, password)
     }).catch((err) => {
-        console.log(err.message);
-        showError(err.message);
+
+        switch(err.code) {
+            case 'auth/invalid-email':
+                console.log('El formato del correo electrónico es incorrecto.');
+                showError('El formato del correo electrónico es incorrecto.');
+                break;
+            case 'auth/user-not-found':
+            case 'auth/wrong-password':
+                console.log('Correo electrónico o contraseña incorrectos.');
+                showError('Correo electrónico o contraseña incorrectos.');
+                break;
+            case 'auth/invalid-credential':
+                console.log('Las credenciales son inválidas. Por favor, intenta de nuevo.');
+                showError('Las credenciales son inválidas. Por favor, intenta de nuevo.');
+                break;
+            default:
+                console.log('Ocurrió un error al iniciar sesión: ' + err.message);
+                showError('Ocurrió un error al iniciar sesión. Por favor, inténtalo de nuevo.');
+        }
+        
     })
     .finally(()=>{
         hideLoadingScreen();
@@ -170,7 +188,9 @@ function registerUser(email, password) {
         .then((cred) => {
             
             console.log("User created: ",cred.user);
-            alert("User created: ", cred.user.uid);
+            // alert("User created: ", cred.user.uid);
+
+            showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
             
             return addEmptyRecord(cred.user.uid, email);
 
@@ -179,8 +199,21 @@ function registerUser(email, password) {
             window.location.href = 'session.html';
         }) 
         .catch((err) => {
-            console.log(err.message)
-            showError(err.message);
+
+            switch(err.code) {
+                case 'auth/email-already-in-use':
+                    showError('El correo electrónico ya está en uso.');
+                    break;
+                case 'auth/invalid-email':
+                    showError('El formato del correo electrónico es incorrecto.');
+                    break;
+                case 'auth/weak-password':
+                    showError('La contraseña es demasiado débil. Por favor, elige una contraseña más fuerte.');
+                    break;
+                default:
+                    showError('Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.');
+            }
+
         })
         .finally(()=>{
             hideLoadingScreen();
@@ -429,10 +462,24 @@ function showError(message) {
 
     setTimeout(() => {
         container.style.display = 'none';
-    }, 5000);
+    }, 4000);
 
     container.onclick = () => {
         container.style.display = 'none';
+    };
+}
+
+function showSuccessMessage(message) {
+    const messageContainer = document.getElementById('success-message-container');
+    messageContainer.textContent = message; 
+    messageContainer.style.display = 'block';
+
+    setTimeout(() => {
+        messageContainer.style.display = 'none';
+    }, 4000);
+
+    messageContainer.onclick = () => {
+        messageContainer.style.display = 'none';
     };
 }
 
@@ -460,4 +507,3 @@ function deleteCurrentUser() {
         hideLoadingScreen();
     }
 }
-
