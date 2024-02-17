@@ -154,12 +154,8 @@ window.addEventListener('load', function(){
 
 function loginUser(email, password) {
 
-    if (!email.trim() || !password.trim()) {
-        showError('Faltan campos por llenar');
-        return;
-    }
-
     showLoadingScreen();
+
     setPersistence(auth, browserSessionPersistence)
     .then(()=>{
         return signInWithEmailAndPassword(auth, email, password)
@@ -192,22 +188,14 @@ function loginUser(email, password) {
 
 function registerUser(email, password) {
 
-    if (!email.trim() || !password.trim()) {
-        showError('Faltan campos por llenar');
-        return;
-    }
-
     showLoadingScreen();
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((cred) => {
             
             console.log("User created: ",cred.user);
-            // alert("User created: ", cred.user.uid);
 
-            // showSuccessMessage("Usuario creado con éxito: " + cred.user.uid);
-
-            addEmptyRecord(cred.user.uid, email);
+            return addEmptyRecord(cred.user.uid, email);
 
         }).then(()=>{
 
@@ -281,15 +269,26 @@ function handleRegister() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    registerUser(email, password);
+    if (!email.trim() || !password.trim()) {
+        showError('Faltan campos por llenar');
+        return;
+    }else{
+        registerUser(email, password);
+    }
 
+   
 }
 
 function handleLogin() {
     const email = document.getElementById("login_email").value;
     const password = document.getElementById("login_password").value;
 
-    loginUser(email, password);
+    if (!email.trim() || !password.trim()) {
+        showError('Faltan campos por llenar');
+        return;
+    }else{
+        loginUser(email, password);
+    }    
 }
 
 function renderUserInfo(userRef) {
