@@ -83,6 +83,41 @@ window.addEventListener('load', function(){
     const createUserForm = document.getElementById('createUserForm');
     const clearCreateForm = document.getElementById('clear-form');
 
+    const idElement = document.getElementById('user-mail');
+    const userExperienceEditFormElement = document.getElementById('experience');
+
+    if(idElement){
+        const intervalId = setInterval(() => {
+            const txt = idElement.textContent;
+
+            if (txt === '') {
+                showLoadingScreen();
+                console.log("escondido");
+               
+            } else {
+                hideLoadingScreen();
+                clearInterval(intervalId);
+            }
+        }, 1000);
+
+    }
+
+    if(userExperienceEditFormElement){
+        const intervalId = setInterval(() => {
+            const txt = userExperienceEditFormElement.value;
+            console.log(txt);
+            if (txt === '' || txt === null) {
+                showLoadingScreen();
+                console.log("escondido");
+               
+            } else {
+                hideLoadingScreen();
+                clearInterval(intervalId);
+            }
+        }, 1000);
+
+    }
+
     if (registration_form) {
         registration_form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -538,5 +573,24 @@ function deleteCurrentUser() {
     } else {
         console.log("No user is currently signed in.");
         hideLoadingScreen();
+    }
+}
+
+
+function checkForElementOnScreen(elementId, page) {
+
+    const currentPageName = window.location.pathname; 
+
+    if (currentPageName === page) {
+        const intervalId = setInterval(() => {
+            const element = document.getElementById(elementId);
+
+            if (element) {
+                hideLoadingScreen();
+                clearInterval(intervalId);
+            } else {
+                showLoadingScreen();
+            }
+        }, 1000);
     }
 }

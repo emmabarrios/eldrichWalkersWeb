@@ -125,7 +125,7 @@ body, html {
     flex: 1 0 auto;
 }
 
-#sticky-footer {
+.sticky-footer {
     flex-shrink: none;
 }
 
@@ -205,4 +205,8 @@ body, html {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     color: white;
+}
+
+.edit-form{
+    margin-bottom: 5em;
 }
