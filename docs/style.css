@@ -127,6 +127,11 @@ body, html {
 
 .sticky-footer {
     flex-shrink: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: yellow;
+    text-align: center;
 }
 
 #loader_container {

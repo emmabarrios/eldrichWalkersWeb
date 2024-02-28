@@ -85,6 +85,7 @@ window.addEventListener('load', function(){
 
     const idElement = document.getElementById('user-mail');
     const userExperienceEditFormElement = document.getElementById('experience');
+    
 
     if(idElement){
         const intervalId = setInterval(() => {
